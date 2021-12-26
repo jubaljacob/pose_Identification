@@ -26,8 +26,8 @@ while True:
             cv2.circle(frame, (cx, cy), 5, (0, 0, 255), cv2.FILLED)
             # print(cx, cy)
             print(id, lm)
-            if id == 30:
-                cv2.circle(frame, (cx, cy), 10, (0, 0, 255), cv2.FILLED)
+            # if id == 30:
+            #     cv2.circle(frame, (cx, cy), 10, (0, 0, 255), cv2.FILLED)
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
