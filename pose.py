@@ -7,7 +7,7 @@ mpPose = mp.solutions.pose
 pose = mpPose.Pose()
 mpDraw = mp.solutions.drawing_utils
 
-cap = cv2.VideoCapture("pose_Identification/run1.mp4")
+cap = cv2.VideoCapture("pose_Identification/run2.mp4")
 pTime = 0
 cTime = 0
 
@@ -18,7 +18,8 @@ while True:
     print(result.pose_landmarks)
 
     if result.pose_landmarks:
-        mpDraw.draw_landmarks(frame, result.pose_landmarks)
+        mpDraw.draw_landmarks(frame, result.pose_landmarks,
+                              mpPose.POSE_CONNECTIONS)
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
