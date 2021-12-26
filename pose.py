@@ -5,13 +5,20 @@ import time
 
 mpPose = mp.solutions.pose
 pose = mpPose.Pose()
+mpDraw = mp.solutions.drawing_utils
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture("pose_Identification/run1.mp4")
 pTime = 0
 cTime = 0
 
 while True:
     success, frame = cap.read()
+    frameRGB = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    result = pose.process(frameRGB)
+    print(result.pose_landmarks)
+
+    if result.pose_landmarks:
+        mpDraw.draw_landmarks(frame, result.pose_landmarks)
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
