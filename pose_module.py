@@ -4,11 +4,13 @@ import time
 
 
 class poseIdentification():
-    def __init__(self, mode=False, complexity=1, smooth=True, enable_segmentation=False, smooth_segmentation=True, detectionConf=0.5, trackConf=0.5):
+    def __init__(self, mode=False, complexity=1, smooth=True, segmentation=False, smoothseg=True, detectionConf=0.5, trackConf=0.5):
 
         self.mode = mode
         self.complexity = complexity
         self.smooth = smooth
+        self.segmentation = segmentation
+        self.smoothseg = smoothseg
         self.detectionConf = detectionConf
         self.trackConf = trackConf
 
