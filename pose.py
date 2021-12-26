@@ -2,12 +2,14 @@ import cv2
 import mediapipe as mp
 import time
 
-
+# wCam, hCam = 1280, 720
 mpPose = mp.solutions.pose
 pose = mpPose.Pose()
 mpDraw = mp.solutions.drawing_utils
 
 cap = cv2.VideoCapture("pose_Identification/run1.mp4")
+# cap.set(3, wCam)
+# cap.set(4, hCam)
 pTime = 0
 cTime = 0
 
@@ -24,8 +26,8 @@ while True:
 
             cx, cy = int(lm.x * w), int(lm.y * h)
             cv2.circle(frame, (cx, cy), 5, (0, 0, 255), cv2.FILLED)
-            # print(cx, cy)
-            print(id, lm)
+            print(cx, cy)
+            # print(id, lm)
             # if id == 30:
             #     cv2.circle(frame, (cx, cy), 10, (0, 0, 255), cv2.FILLED)
 
